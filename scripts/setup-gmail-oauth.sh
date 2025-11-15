@@ -1,0 +1,30 @@
+#!/bin/bash
+# Gmail OAuth Setup Helper Script
+# This script guides through the Google Cloud Console setup for Gmail API
+
+echo "📧 Gmail OAuth Setup Helper"
+echo ""
+echo "Follow these steps to set up Gmail OAuth:"
+echo ""
+echo "1. Go to Google Cloud Console: https://console.cloud.google.com/"
+echo "2. Create a new project or select existing one"
+echo "3. Enable Gmail API:"
+echo "   - Navigate to 'APIs & Services' > 'Library'"
+echo "   - Search for 'Gmail API'"
+echo "   - Click 'Enable'"
+echo ""
+echo "4. Create OAuth 2.0 Credentials:"
+echo "   - Go to 'APIs & Services' > 'Credentials'"
+echo "   - Click 'Create Credentials' > 'OAuth client ID'"
+echo "   - Application type: 'Web application'"
+echo "   - Authorized redirect URIs: http://localhost:3001/auth/google/callback"
+echo "   - Copy Client ID and Client Secret"
+echo ""
+echo "5. Add credentials to .env file:"
+echo "   GOOGLE_CLIENT_ID=your-client-id"
+echo "   GOOGLE_CLIENT_SECRET=your-client-secret"
+echo ""
+echo "6. Store in 1Password and update .env with op:// references"
+echo ""
+echo "✅ Setup complete!"
+

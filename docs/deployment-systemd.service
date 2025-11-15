@@ -1,0 +1,20 @@
+[Unit]
+Description=Slack VA Service
+After=network.target
+
+[Service]
+Type=simple
+User=bc
+WorkingDirectory=/opt/slack-va
+Environment="NODE_ENV=production"
+# Use op run to inject secrets from 1Password
+# Requires OP_SERVICE_ACCOUNT_TOKEN to be set (via ~/.op-env)
+ExecStart=/bin/bash -c 'source ~/.op-env && op run --env-file=/opt/slack-va/.env -- /usr/bin/node /opt/slack-va/dist/index.js'
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+
